@@ -1,9 +1,10 @@
 import { Component, computed, input } from '@angular/core';
 import { SimplePokemon } from '../../interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokemon-card.component.html'
 })
 export class PokemonCardComponent {
