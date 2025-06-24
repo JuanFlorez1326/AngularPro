@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
   selector: 'app-pokemons-page',
   imports: [
     PokemonListComponent, 
-    // PokemonListSkeletonComponent
+    PokemonListSkeletonComponent
   ],
   templateUrl: './pokemons-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
