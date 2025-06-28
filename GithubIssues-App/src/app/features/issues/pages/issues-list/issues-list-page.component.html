@@ -12,6 +12,8 @@
 
     <div class="mt-4 flex flex-col col-span-2">
         <h3>Issues:</h3>
+
+        <a routerLink="/issue/123">Go Issue: 123</a>
         <!-- List -->
         <!-- Spinner -->
         <!-- No Found -->
@@ -19,6 +21,12 @@
     
     <div>
         <h3>Labels:</h3>
+
+        @if(labelsQuery.isLoading()) {
+            <p>Loading...</p>
+        } @else {
+            <p>Labels</p>
+        }
         <!-- Spinner -->
         <!-- Selector -->
     </div>
