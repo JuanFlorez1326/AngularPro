@@ -11,19 +11,23 @@
     </div>
 
     <div class="mt-4 flex flex-col col-span-2">
-        <a routerLink="/issue/123">Go Issue: 123</a>
-        <!-- List -->
-        <!-- Spinner -->
-        <!-- No Found -->
+
+        @for (issue of issuesQuery.data(); track issue.id) {
+            <app-issue-item [issue]="issue"/>
+        } @empty {
+            @if (issuesQuery.isLoading()) {
+                <p>Loading issues...</p>
+            } @else {
+                <p>There are no issues</p>
+            }
+        }
     </div>
     
     <div>
         @if(labelsQuery.isLoading()) {
-            <p>Loading...</p>
+            <p>Loading labels...</p>
         } @else {
             <app-labels-selector [labels]="labelsQuery.data() ?? []" />
         }
-        <!-- Spinner -->
-        <!-- Selector -->
     </div>
 </section>
