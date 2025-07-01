@@ -6,3 +6,14 @@
 } @else {
     <app-issue-comment [issue]="issueQuery.data()!"/>
 }
+
+
+@if( issueCommentsQuery.isLoading() ) {
+    <p>Loading issue...</p>
+} @else {
+    @for (comment of issueCommentsQuery.data(); track comment.id) {
+        <app-issue-comment [issue]="comment"/>
+    } @empty {
+        <p>No comments</p>
+    }
+}
