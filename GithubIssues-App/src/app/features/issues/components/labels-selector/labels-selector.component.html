@@ -3,8 +3,10 @@
         <div 
             class="border p-1 m-1 rounded-md hover:bg-slate-950 cursor-pointer"
             [ngStyle]="{ 'border-color': '#' + label.color }"
+            [class.selected-label]="isSelected(label.name)"
+            (click)="toggleLalel(label.name)"
         >
-            {{ label.name }}
+            {{ label.name | titlecase }}
         </div>
     }
 </div>
