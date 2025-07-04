@@ -4,9 +4,9 @@
 <section class="grid grid-cols-1 sm:grid-cols-3 gap-2">
     <div class="col-span-3 flex flex-col">
         <div class="flex gap-2">
-            <button class="btn active">All</button>
-            <button class="btn">Open</button>
-            <button class="btn">Closed</button>
+            <button (click)="changeState('all')" [class.active]="issuesService.selectedState() === 'all'" class="btn">All</button>
+            <button (click)="changeState('open')" [class.active]="issuesService.selectedState() === 'open'" class="btn">Open</button>
+            <button (click)="changeState('closed')" [class.active]="issuesService.selectedState() === 'closed'" class="btn">Closed</button>
         </div>
     </div>
 

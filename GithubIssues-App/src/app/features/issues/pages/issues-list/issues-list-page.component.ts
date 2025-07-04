@@ -3,6 +3,7 @@ import { IssuesService } from '../../services/issues.service';
 import { CommonModule } from '@angular/common';
 import { LabelsSelectorComponent } from '../../components/labels-selector/labels-selector.component';
 import { IssueItemComponent } from "../../components/issue-item/issue-item.component";
+import { State } from '../../interfaces';
 
 @Component({
   selector: 'app-issues-list-page',
@@ -16,7 +17,7 @@ import { IssueItemComponent } from "../../components/issue-item/issue-item.compo
 })
 export default class IssuesListPageComponent { 
 
-  private issuesService = inject(IssuesService);
+  public issuesService = inject(IssuesService);
 
   get labelsQuery() {
     return this.issuesService.labelsQuery;
@@ -24,5 +25,15 @@ export default class IssuesListPageComponent {
 
   get issuesQuery() {
     return this.issuesService.issuesuery;
+  }
+
+  public changeState( newState: string ) {
+    const state = {
+      'all': State.All,
+      'open': State.Open,
+      'closed': State.Closed
+    } [newState] ?? State.All
+
+    this.issuesService.showIssuesByState(state);
   }
 }
